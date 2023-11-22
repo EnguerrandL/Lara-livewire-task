@@ -3,19 +3,29 @@
 namespace App\Livewire;
 
 use App\Models\User;
+use Livewire\Attributes\Rule;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Counter extends Component
-{
+{   
+    // Règles de validation
 
+    use WithPagination;
 
+    #[Rule('required|min:2')]
     public $name;
+
+    #[Rule('required|min:2')]
     public $email;
+
+    #[Rule('required|min:2')]
     public $password;
 
 
     public function createUser(){
 
+    $this->validate();
 
         User::create([
             'name' => $this->name,
@@ -24,6 +34,10 @@ class Counter extends Component
         ]);
 
 
+
+     $this->reset(['name', 'email', 'password']);
+
+     request()->session()->flash('success', 'User crée avec succès');
     }
 
 
@@ -32,7 +46,7 @@ class Counter extends Component
     public function render()
     {
         return view('livewire.counter', [
-            'users' => User::orderBy('created_at', 'DESC')->get(),
+            'users' => User::orderBy('created_at', 'DESC')->paginate(5),
         ]);
     }
 }
