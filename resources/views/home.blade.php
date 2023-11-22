@@ -21,7 +21,12 @@
     </div>
 </div>
 <div id="content" class="mx-auto" style="max-width:500px;">
-    @livewire('task-list')
+    {{-- @livewire('task-list') --}}
+
+
+
+@livewire('add-image')
+
 </div>
 
 
