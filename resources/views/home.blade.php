@@ -20,12 +20,13 @@
         </header>
     </div>
 </div>
-<div id="content" class="mx-auto" style="max-width:500px;">
+<div id="content" class="mx-auto flex" style="">
     {{-- @livewire('task-list') --}}
 
 
 
 @livewire('add-image')
+@livewire('show-user-list')
 
 </div>
 
