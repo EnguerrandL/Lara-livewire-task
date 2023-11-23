@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\Controller;
-use App\Livewire\Counter;
+use App\Livewire\HomePage;
+use App\Livewire\UsersPage;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +19,10 @@ use Illuminate\Support\Facades\Route;
 // Route::view('/', 'welcome', [Controller::class, 'SearchUsers']);
 
 
-Route::get('/', [Controller::class, 'index'])->name('index');
+// Route::get('/', [Controller::class, 'index'])->name('index');
+
+Route::get('/users',  UsersPage::class);
+Route::get('/',  HomePage::class);
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

@@ -1,4 +1,4 @@
-<div class="flex-1 container ">
+<div  class="  w-50">
 
 
     @if (session('alert'))
@@ -24,7 +24,9 @@
             <span class="text-red-500 text-xs"> {{ $message }}</span>
         @enderror
 
-        <button wire:loading.remove type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+        {{-- wire:loading.remove --}}
+
+        <button  type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
             Ajouter une image
         </button>
     </form>

@@ -11,8 +11,38 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
+
+
+
+
+ 
+
 <body>
-    @yield('content')
+
+
+
+     <div class="flex flex-row">
+        <div class="basis-1/6">
+        
+        @include('layout.nav')
+        
+        
+        </div>
+
+
+
+
+        <div class="basis-5/6">
+            
+            {{$slot }}
+        
+            @yield('content')
+        
+        </div>
+       
+      </div>
+     
+
 </body>
 
 </html>
