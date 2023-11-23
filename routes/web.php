@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/', [Controller::class, 'index'])->name('index');
 
-Route::get('/users',  UsersPage::class);
+Route::get('/users/{user}',  UsersPage::class);
 Route::get('/',  HomePage::class);
 
 Route::view('dashboard', 'dashboard')

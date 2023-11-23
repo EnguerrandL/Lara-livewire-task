@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>@yield('title')</title>
+    {{-- <title>@yield('title')</title> --}}
+    <title>{{$title ?? config('app.name')}}</title>
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -34,7 +35,7 @@
 
         <div class="basis-5/6">
             
-            {{$slot }}
+            {{ $slot }}
         
             @yield('content')
         
