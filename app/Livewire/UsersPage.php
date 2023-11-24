@@ -12,7 +12,7 @@ class UsersPage extends Component
     #[Title('Page users')]
 
     // Pour éviter de définir le layout, on peut publier le fichier config de livewire et définir le layout 
-    #[Layout('layout.base')]
+    // #[Layout('home')]
 
     public User $user;
 

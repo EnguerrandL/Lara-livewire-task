@@ -1,4 +1,4 @@
-@extends('layouts.base')
+@extends('layout.base')
 
 @section('title', 'Accueil')
 
@@ -13,11 +13,10 @@
 
 
 <div>
-    
+
 {{ $slot }}
+
 </div>
-
-
 
 
 @endsection
