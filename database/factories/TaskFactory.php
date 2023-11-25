@@ -17,15 +17,12 @@ class TaskFactory extends Factory
     public function definition(): array
     {
 
-      
+    
 
         return [
-            'completed' => fake()->boolean(50),
-            'date_start' => fake()->dateTimeBetween('now', '+ 20days'),
-            'date_limit' => fake()->dateTimeBetween('+21 days', '+40days'),
-            'name' =>  fake()->name(),
-        ];
 
-     
+            
+       
+        ];
     }
 }

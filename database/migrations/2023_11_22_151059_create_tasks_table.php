@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->dateTime('date_start');
             $table->dateTime('date_limit');
-            $table->boolean('completed')->default(false);
+
             $table->timestamps();
         });
     }

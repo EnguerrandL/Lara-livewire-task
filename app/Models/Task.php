@@ -16,4 +16,13 @@ class Task extends Model
         'name'
     ];
     protected $guarded = [];
+
+
+
+    public function taskAssignement(){
+        $this->hasMany(TaskAssignement::class);
+    }
+
+    
+
 }
