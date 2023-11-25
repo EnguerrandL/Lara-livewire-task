@@ -10,14 +10,17 @@ class TaskAssignement extends Model
     use HasFactory;
 
 
-public function task(){
-    $this->belongsTo(Task::class);
-}
+    protected $fillable = ['user_id', 'task_id'];
+
+    public function task()
+    {
+        $this->belongsTo(Task::class);
+    }
 
 
-public function user(){
+    public function user()
+    {
 
-    $this->belongsToMany(User::class);
-}
-
+        $this->belongsToMany(User::class);
+    }
 }

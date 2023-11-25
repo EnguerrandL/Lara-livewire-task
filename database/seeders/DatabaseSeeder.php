@@ -26,7 +26,8 @@ class DatabaseSeeder extends Seeder
             Task::create([
                 'name' => $taskName,
                 'date_start' => $startDate,
-                'date_limit' => $limitDate
+                'date_limit' => $limitDate,
+                'description' => fake()->realText(100)
 
             ]);
         }

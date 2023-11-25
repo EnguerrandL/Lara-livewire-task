@@ -13,7 +13,8 @@ class Task extends Model
         'completed',
         'date_start',
         'date_limit',
-        'name'
+        'name',
+        'description'
     ];
     protected $guarded = [];
 
