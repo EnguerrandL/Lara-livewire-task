@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.9/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.9/dist/flatpickr.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
+
 </head>
 
 
@@ -49,19 +49,23 @@
         </div>
        
       </div>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/datepicker.min.js"></script>
+ 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/datepicker.min.js"></script>
+   
 
       <script>
     document.addEventListener('DOMContentLoaded', function () {
         flatpickr('#start-date', {
-            // Ajoutez des options personnalisées si nécessaire
+           
         });
 
-        flatpickr('#end-date', {
-            // Ajoutez des options personnalisées si nécessaire
+        flatpickr('#limit-date', {
+            
         });
     });
+
+
 </script>
 </body>
 

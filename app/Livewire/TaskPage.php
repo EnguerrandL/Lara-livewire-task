@@ -26,13 +26,15 @@ class TaskPage extends Component
     public $taskLimitDate;
 
     #[Validate('sometimes', message: 'You must pick at least one user')]
-    public $taskAssignedUsers = [];
+    public $taskAssignedUsers;
 
     #[Validate('required', message: 'The have the right to know what to do....')]
     public $taskDescription;
 
 
-
+    public $editingTaskId;
+    public $editingTaskName;
+    
     public function store()
     {
 
@@ -44,10 +46,10 @@ class TaskPage extends Component
             'date_limit' => $this->taskLimitDate,
             'description' => $this->taskDescription
         ]);
-
+            
         foreach ($this->taskAssignedUsers as $userId) {
 
-           
+
               TaskAssignement::create([
                 'user_id' => $userId,
                 'task_id' => $newTask->id,
@@ -58,6 +60,36 @@ class TaskPage extends Component
         $this->reset();
     }
 
+    public function edit($id)
+    {
+        $task = Task::find($id);
+    
+        $this->editingTaskId = $task->id;
+        $this->editingTaskName = $task->name;
+    }
+
+
+
+    public function save(){
+
+        $this->validateOnly('editingTaskName'); 
+
+        Task::find($this->editingTaskId)->update([
+            'name' => $this->editingTaskName
+        ]);
+
+        $this->cancelEdit();
+
+    }
+
+    public function cancelEdit(){
+
+
+        
+        $this->reset('editingTaskId', 'editingTaskName');
+   
+    } 
+    
 
     public function delete($id)
     {
@@ -82,8 +114,9 @@ class TaskPage extends Component
     public function render()
     {
         return view('livewire.task-page', [
-            'tasks' => Task::all(),
-            'users' => User::all()
+            'tasks' => Task::latest()->get(),
+            'users' => User::all(),
+           
         ]);
     }
 }

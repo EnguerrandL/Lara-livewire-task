@@ -44,8 +44,8 @@ class User extends Authenticatable
     ];
 
 
-    public function taskAssignement(){
-        
-        $this->hasMany(TaskAssignement::class);
+    public function taskAssignements()
+    {
+        return $this->belongsToMany(TaskAssignement::class);
     }
 }
