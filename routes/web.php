@@ -3,6 +3,7 @@
 use App\Http\Controllers\Controller;
 use App\Livewire\HomePage;
 use App\Livewire\TaskPage;
+use App\Livewire\UserManagement;
 use App\Livewire\UsersPage;
 use Illuminate\Support\Facades\Route;
 
@@ -22,8 +23,9 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/', [Controller::class, 'index'])->name('index');
 
-Route::get('/users/{user}',  UsersPage::class);
+// Route::get('/users/{user}',  UsersPage::class);
 Route::get('/',  TaskPage::class);
+Route::get('/users', UserManagement::class);
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

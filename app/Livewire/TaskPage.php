@@ -13,7 +13,7 @@ use Livewire\Component;
 class TaskPage extends Component
 {
 
-    #[Title('Gestion des tâches')]
+    #[Title('Task management')]
     #[Layout('home')]
 
     #[Validate('required', message: 'Name required')]
@@ -31,9 +31,17 @@ class TaskPage extends Component
     #[Validate('required', message: 'The have the right to know what to do....')]
     public $taskDescription;
 
-
+    public $search;     
     public $editingTaskId;
     public $editingTaskName;
+
+
+
+    public function search(){
+
+
+        
+    }
     
     public function store()
     {
@@ -109,12 +117,18 @@ class TaskPage extends Component
     );
     }
 
+    public function orderByDate(){
+
+        Task::orderBy('created_at', 'ASEC');
+
+    }
+
 
 
     public function render()
     {
         return view('livewire.task-page', [
-            'tasks' => Task::latest()->get(),
+            'tasks' => Task::orderBy('created_at', 'DESC')->where('name', 'like' , "%{$this->search}%")->get(),
             'users' => User::all(),
            
         ]);
