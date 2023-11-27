@@ -14,10 +14,10 @@ class Task extends Model
         'date_start',
         'date_limit',
         'name',
-        'description'
+        'description',
+        'files'
     ];
     protected $guarded = [];
-
 
 
     public function taskAssignement(){

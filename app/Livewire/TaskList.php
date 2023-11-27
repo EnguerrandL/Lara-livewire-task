@@ -11,6 +11,7 @@ use Livewire\WithPagination;
 class TaskList extends Component
 {
 
+   
     use WithPagination;
 
     #[Rule('required|max:50')]
