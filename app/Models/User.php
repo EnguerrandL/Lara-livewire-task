@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'is_admin',
     ];
 
     /**
@@ -47,5 +48,10 @@ class User extends Authenticatable
     public function taskAssignements()
     {
         return $this->belongsToMany(TaskAssignement::class);
+    }
+
+
+    public function scopeSearch($query, $value){
+        $query->where('name', 'like', "%{$value}%")->orWhere('email', 'like', "%{$value}%");
     }
 }
