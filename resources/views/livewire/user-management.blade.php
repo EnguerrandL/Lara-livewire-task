@@ -18,10 +18,13 @@
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 "
                                 placeholder="Search" required="">
                         </div>
-<div class="ml-5 flex "> <button wire:click="$refresh"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
-  </svg>
-  </button></div>
+                        <div class="ml-5 flex "> <button wire:click="$refresh"><svg xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                    class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                                </svg>
+                            </button></div>
 
                     </div>
                     <div class="flex space-x-3">
@@ -75,8 +78,7 @@
                                     <td class="px-4 py-3">{{ $user->created_at }}</td>
                                     <td class="px-4 py-3">{{ $user->updated_at }}</td>
                                     <td class="px-4 py-3 flex items-center justify-end">
-                                        <button
-                                            onclick="confirm('Are you sure you want to delete {{ $user->name }} ? ') || event.stopImmediatePropagation() "
+                                        <button wire:confirm="Are you sure you want to delete {{ $user->name }}"
                                             wire:click="delete({{ $user->id }})"
                                             class="px-3 py-1 bg-red-500 text-white rounded">X</button>
                                     </td>

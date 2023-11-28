@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Controller;
+use App\Livewire\Calendar;
 use App\Livewire\HomePage;
 use App\Livewire\TaskPage;
 use App\Livewire\UserManagement;
@@ -24,8 +25,9 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', [Controller::class, 'index'])->name('index');
 
 // Route::get('/users/{user}',  UsersPage::class);
-Route::get('/',  TaskPage::class);
+Route::get('/tasks',  TaskPage::class);
 Route::get('/users', UserManagement::class);
+Route::get('/', Calendar::class);
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
