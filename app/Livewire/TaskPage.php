@@ -37,7 +37,7 @@ class TaskPage extends Component
     #[Validate('required', message: 'The have the right to know what to do....')]
     public $taskDescription;
 
-    #[Rule(['files.*' => 'image|max:2048'])]
+    #[Rule(['files.*' => 'image|max:2048|required'], message: '???')]
     public $files;
 
     public $search;
@@ -93,6 +93,15 @@ class TaskPage extends Component
         $this->reset();
     }
 
+  
+
+    public function updated($property){
+        
+        if ($property === 'taskName'){
+          $this->taskName = strtoupper($this->taskName);
+        }
+    }
+
     public function edit($id)
     {
         $task = Task::find($id);
@@ -117,8 +126,6 @@ class TaskPage extends Component
 
     public function cancelEdit()
     {
-
-
 
         $this->reset('editingTaskId', 'editingTaskName');
     }
